@@ -14,27 +14,27 @@ let change = document.getElementById('change');
 let Ttl;
 localStorage.getItem('Ttl') ? Ttl = parseInt(localStorage.getItem('Ttl')) : Ttl = 0;
 total.textContent = "$" + Ttl;
-console.log(Ttl)
 let changeVal = 0;
 let changeArr;
 localStorage.getItem('changeArr') ? changeArr = localStorage.getItem('changeArr').split(',') : changeArr = [];
-console.log(changeArr);
 
 ttlBtn.addEventListener('click', () => {
     if (ttlInput.value) {
         Ttl = parseInt(ttlInput.value);
-        total.textContent = "$" + Ttl;
+        changeArr.push(Ttl, "Starting Budget");
+        localStorage.setItem('Ttl', Ttl)
+        localStorage.setItem('changeArr', changeArr)
+        genList(changeArr);
+        total.textContent = "$" + Ttl
         ttlInput.value = '';
     }
-    localStorage.setItem('Ttl', Ttl)
 })
 
 lossBtn.addEventListener('click', () => {
     if (lossInput.value) {
         changeVal = (parseInt(lossInput.value)) * -1;
         Ttl = Ttl + changeVal;
-        let tempArr = [changeVal, lossDesc.value];
-        changeArr.push(tempArr);
+        changeArr.push(changeVal, lossDesc.value);
         localStorage.setItem('Ttl', Ttl)
         localStorage.setItem('changeArr', changeArr)
         genList(changeArr);
@@ -42,16 +42,13 @@ lossBtn.addEventListener('click', () => {
         lossInput.value = '';
         lossDesc.value = '';
     }
-
 })
 
 gainBtn.addEventListener('click', () => {
     if (gainInput.value) {
         changeVal = (parseInt(gainInput.value));
-        console.log(changeVal)
         Ttl = Ttl + changeVal;
-        let tempArr = [changeVal, gainDesc.value];
-        changeArr.push(tempArr);
+        changeArr.push(changeVal, gainDesc.value);
         localStorage.setItem('Ttl', Ttl)
         localStorage.setItem('changeArr', changeArr)
         genList(changeArr);
