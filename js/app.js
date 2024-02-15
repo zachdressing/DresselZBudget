@@ -1,4 +1,3 @@
-//Grab targets by ID
 let ttlBtn = document.getElementById('ttlBtn');
 let ttlInput = document.getElementById('ttlInput')
 let lossBtn = document.getElementById('lossBtn');
@@ -10,7 +9,6 @@ let gainDesc = document.getElementById('gainDesc')
 let total = document.getElementById('total');
 let change = document.getElementById('change');
 
-//Set basic values
 let Ttl;
 localStorage.getItem('Ttl') ? Ttl = parseInt(localStorage.getItem('Ttl')) : Ttl = 0;
 total.textContent = "$" + Ttl;
@@ -32,7 +30,7 @@ ttlBtn.addEventListener('click', () => {
 
 lossBtn.addEventListener('click', () => {
     if (lossInput.value) {
-        changeVal = (parseInt(lossInput.value)) * -1;
+        changeVal = (parseInt(lossInput.value));
         Ttl = Ttl + changeVal;
         changeArr.push(changeVal, lossDesc.value);
         localStorage.setItem('Ttl', Ttl)
