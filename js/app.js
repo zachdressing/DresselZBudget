@@ -19,7 +19,7 @@ localStorage.getItem('changeArr') ? changeArr = localStorage.getItem('changeArr'
 ttlBtn.addEventListener('click', () => {
     if (ttlInput.value) {
         Ttl = parseInt(ttlInput.value);
-        changeArr.push(Ttl, "Starting Budget");
+        changeArr.push(`${Ttl}`, "Starting Budget");
         localStorage.setItem('Ttl', Ttl)
         localStorage.setItem('changeArr', changeArr)
         genList(changeArr);
