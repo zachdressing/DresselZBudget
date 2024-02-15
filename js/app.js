@@ -32,7 +32,7 @@ lossBtn.addEventListener('click', () => {
     if (lossInput.value) {
         changeVal = (parseInt(lossInput.value));
         Ttl = Ttl + changeVal;
-        changeArr.push(changeVal, lossDesc.value);
+        changeArr.push(`${changeVal}`, lossDesc.value);
         localStorage.setItem('Ttl', Ttl)
         localStorage.setItem('changeArr', changeArr)
         genList(changeArr);
@@ -46,7 +46,7 @@ gainBtn.addEventListener('click', () => {
     if (gainInput.value) {
         changeVal = (parseInt(gainInput.value));
         Ttl = Ttl + changeVal;
-        changeArr.push(changeVal, gainDesc.value);
+        changeArr.push(`${changeVal}`, gainDesc.value);
         localStorage.setItem('Ttl', Ttl)
         localStorage.setItem('changeArr', changeArr)
         genList(changeArr);
@@ -67,6 +67,16 @@ const genList = () => {
         let p1 = document.createElement('p');
         let p2 = document.createElement('p');
         let it = document.createElement('i');
+        let butt = document.createElement('button');
+        butt.classList.add('w-24');
+        butt.classList.add('border')
+        butt.classList.add('border-black')
+        butt.innerText = "remove"
+        butt.addEventListener('click', ()=>{
+            changeArr.splice(changeArr.indexOf(p1.innerText));
+            localStorage.setItem('changeArr', changeArr)
+            genList();
+        })
         it.innerText = array[desc];
         p2.appendChild(it);
         p1.classList.add('text-xl');
@@ -74,6 +84,7 @@ const genList = () => {
         divC.classList.add('container');
         divC.appendChild(p1);
         divC.appendChild(p2);
+        divC.appendChild(butt);
         change.appendChild(divC);
     }
 }
