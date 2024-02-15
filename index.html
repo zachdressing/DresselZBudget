@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/x-icon" href="./assets/budgetLogoFav.png">
+</head>
+
+<body class="h-screen bg-gray-500 flex flex-col">
+    <div class="row flex items-center bg-black justify-center p-2">
+        <img src="./assets/budgetLogo.png" width="100px" alt="Logo">
+        <h1 class="text-2xl font-bold text-white">Budgeting For Simpletons</h1>
+    </div>
+    <div class="row flex flex-col max-w-[425px] mx-auto gap-y-4 my-4">
+        <div class="row flex flex-col"> 
+            <input id="ttlInput" type="number" class="p-1" placeholder="Starting Budget">
+            <button id="ttlBtn" class="bg-gray-400 border border-black hover:brightness-75">Add Starting Budget</button>
+
+        </div>
+        <div class="row flex flex-col"> 
+            <input id="lossInput" type="number" class="p-1" placeholder="Loss Value">
+            <input id="lossDesc" type="text" class="p-1" placeholder="Loss Description">
+            <button id="lossBtn" class="h-12 bg-gray-400 border border-black hover:brightness-75">Add Expense</button>
+
+        </div>
+        <div class="row flex flex-col"> 
+            <input id="gainInput" type="number" class="p-1" placeholder="Gain Value">
+            <input id="gainDesc" type="text" class="p-1" placeholder="Gain Description">
+            <button id="gainBtn" class="h-12 bg-gray-400 border border-black hover:brightness-75">Add Gain</button>
+
+        </div>
+    </div>
+    <div class="container max-w-[400px] mx-auto gap-y-4 my-4 bg-gray-400 border border-black flex flex-col items-center">
+        <div id="total" class="row text-5xl font-bold">ExampTotal</div>
+        <div id="change" class="row text-center">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
